@@ -10,7 +10,7 @@ Real-time particle track reconstruction of high-frequency, noisy data using ML o
 [![etx4velo-1 preview](/assets/images/etx4velo-1.png)](/assets/images/etx4velo-1.pdf)
 [![etx4velo-2 preview](/assets/images/etx4velo-2.png)](/assets/images/etx4velo-2.pdf)
 
-[Paper](https://dx.doi.org/10.1088/1748-0221/19/12/P12022), [Code](https://gitlab.cern.ch/gdl4hep)
+[Paper](https://dx.doi.org/10.1088/1748-0221/19/12/P12022), [Paper](https://arxiv.org/abs/2502.02304), [Code](https://gitlab.cern.ch/gdl4hep)
 
 ## ![logo](/assets/images/xim-logo.png){: width="50px" style="vertical-align:middle;" } Traffic Anomaly Detection
 
