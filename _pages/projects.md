@@ -35,11 +35,18 @@ Exploring weak ergodicity breaking in the PXP spin chain.
 
 [Master Thesis](https://dspace.lib.ntua.gr/xmlui/bitstream/handle/123456789/55932/quantum-chaos.pdf), [Code(Julia, Python)](https://github.com/fgias/quantum-chaos)
 
-## ![logo](/assets/images/chirikov-logo.png){: width="50px" style="vertical-align:middle;"} Chimera states in networks of coupled spiking neuron oscillators
+## ![logo](/assets/images/chirikov-logo.png){: width="50px" style="vertical-align:middle;"} Chimera States in Oscillator Networks
 
-Chimera states in the leaky integrate-and-fire model with non-local connectivity.
+Chimera states in the leaky integrate-and-fire model of spiking neuron oscillators.
 
 ![lif-1](/assets/images/lif-1.png)
-**Figure:** Chimera state in a network of coupled identical oscillators. The phases settle into coexisting domains of coherence and incoherence.
+**Figure:** Development of a chimera state in a network of coupled identical oscillators, with coexisting domains of coherence and incoherence.
 
 [Code(Python, C++, Java)](https://github.com/fgias/leaky-integrate-and-fire)
+
+## ![logo](/assets/images/xbtusd-logo.png){: width="50px" style="vertical-align:middle;"} Exploring Trading Strategies for Crypto
+
+![xbtusd-1](/assets/images/xbtusd-1.png)
+**Figure:** Illustration of buy and sell signals based on moving averages, on historical data of bitcoin prices.
+
+[Code(Python)](https://github.com/fgias/freqtrade-strategies), [Code(Python)](https://github.com/fgias/bitcoin-backtester)
