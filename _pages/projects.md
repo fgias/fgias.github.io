@@ -5,7 +5,7 @@ title: "Projects"
 
 ## ![logo](/assets/images/etx4velo-avatar.png){: width="50px" style="vertical-align:middle;" } ETX4VELO
 
-Real-time particle track reconstruction of high-frequency, noisy data using ML on GPUs and FPGAs at the LHC. 
+Real-time particle track reconstruction from high-frequency, noisy data using ML on GPUs and FPGAs at the LHC. 
 
 [![etx4velo-1 preview](/assets/images/etx4velo-1.png)](/assets/images/etx4velo-1.pdf)
 [![etx4velo-2 preview](/assets/images/etx4velo-2.png)](/assets/images/etx4velo-2.pdf)
