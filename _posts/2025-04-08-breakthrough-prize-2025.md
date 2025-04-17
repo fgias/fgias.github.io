@@ -6,6 +6,7 @@ categories:
 tags:
   - LHCb
   - CERN
+comments: true
 ---
 
 The LHCb collaboration, together with the other three main Large Hadron Collider collaborations, ATLAS, CMS and ALICE, has been awarded the 2025 [Breakthrough Prize](https://breakthroughprize.org/) in Fundamental Physics:

@@ -6,6 +6,7 @@ categories:
 tags:
   - LHCb
   - CERN
+comments: true
 ---
 
 Working with LHCb resources requires a valid grid certificate. Here's a step-by-step guide for obtaining and renewing your certificate, tailored for lxplus and LHCb DIRAC access.

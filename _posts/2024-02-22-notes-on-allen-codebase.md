@@ -6,6 +6,7 @@ categories:
 tags:
   - LHCb
   - GPU
+comments: true
 ---
 
 This post is meant to give extra comments and notes on the Allen codebase. For more introductory materials see the Allen [GitLab](https://gitlab.cern.ch/lhcb/Allen/) and [documentation](https://allen-doc.docs.cern.ch/). The CUDA GNU debugger is highly recommended for exploring and understanding the codebase.
