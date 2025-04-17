@@ -7,6 +7,7 @@ tags:
   - Crypto
   - Bitcoin
   - Quant
+comments: true
 ---
 
 ## Setting Up the Trading Bot

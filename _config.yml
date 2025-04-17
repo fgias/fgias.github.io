@@ -21,6 +21,10 @@ description: >- # this means to ignore newlines until "baseurl:"
 github_username: fgias
 minimal_mistakes_skin: default
 search: true
+comments:
+  provider: "disqus"
+  disqus:
+    shortname: "fotisgiasemis-com"
 
 # Build settings
 markdown: kramdown
