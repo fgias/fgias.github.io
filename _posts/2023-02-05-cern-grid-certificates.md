@@ -8,59 +8,89 @@ tags:
   - CERN
 ---
 
+Working with LHCb resources requires a valid grid certificate. Here's a step-by-step guide for obtaining and renewing your certificate, tailored for lxplus and LHCb DIRAC access.
+
 ## Obtaining a Certificate
 
-Instructions [here](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/Certificate).
+Instructions: [Official LHCb Certificate Guide](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/Certificate)
 
-- Use Firefox.
+1. **Use Firefox** — Chrome and other browsers may not work well for certificate management.
 
-- Import all the certificates on the browser.
+2. **Import all required certificates** into Firefox (as described in the link above).
 
-- Import you own certificate to the browser, and keep the import password.
+3. **Import your personal certificate** into Firefox. You’ll be prompted to set an **import password** — remember it!
 
-- Send the file to your lxplus account with `scp`.
+4. **Transfer the certificate** to your `lxplus` account:
 
-- Log in.
+   ```bash
+   scp MyCertificate.p12 username@lxplus.cern.ch:
+   ```
 
-```
-ssh -Y username@lxplus.cern.ch
-```
+5. **SSH into lxplus**:
 
-- Convert to PEM and use a PEM passphrase different from the import password.
+   ```bash
+   ssh -Y username@lxplus.cern.ch
+   ```
 
-```
-lb-dirac dirac-cert-convert MyFile.p12
-```
+6. **Convert the certificate to PEM format** (you’ll be asked to set a **PEM passphrase** — use a different one than the import password):
 
-- Join the LHCb Virtual Organisation, and wait 24 hours for validation, see [link](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/Certificate).
+   ```bash
+   lb-dirac dirac-cert-convert MyCertificate.p12
+   ```
 
-- After validation, in lxplus try: `lhcb-proxy-init`, and enter the PEM passphrase.
+7. **Join the LHCb Virtual Organisation (VO)** via the [VOMS registration page](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/Certificate). You may need to wait ~24 hours for validation.
 
-- Now you can access the LHCb DIRAC portal.
+8. Once validated, initialize your proxy on `lxplus`:
+
+   ```bash
+   lhcb-proxy-init
+   ```
+
+   Enter your PEM passphrase when prompted.
+
+✅ You now have access to the [LHCb DIRAC portal](https://lhcb-portal-dirac.cern.ch/).
 
 ## Renewing a Certificate
 
-- Download a certificate from the [Certification Authority](https://ca.cern.ch/ca/).
+1. **Download your renewed certificate** from the [CERN Certification Authority](https://ca.cern.ch/ca/).
 
-- Move it to lxplus with `scp`.
+2. **Transfer it to lxplus**:
 
-- Delete the old ceritificate from the Firefox browser.
+   ```bash
+   scp NewCertificate.p12 username@lxplus.cern.ch:
+   ```
 
-- On [IAM](https://lhcb-auth.cern.ch/), on your profile, under `X.509 certificates`, unlink the old certificate.
+3. **In Firefox**, delete the old certificate and import the new `.p12` one.
 
-- Import the `.p12` certificate to Firefox.
+4. **Update your IAM profile**:
+   - Visit [IAM Profile](https://lhcb-auth.cern.ch/)
+   - Under `X.509 certificates`, **unlink the old certificate**.
+   - Then, **link the new certificate** you just imported.
 
-- On the same IAM page, link the new certificate to your account.
+5. **On lxplus**, clear your previous credentials:
 
-- On lxplus, delete everything in the `~/.globus` directory.
+   ```bash
+   rm -rf ~/.globus
+   ```
 
-- Like before, convert to PEM and use a PEM passphrase different from the import password.
+6. **Convert the new certificate to PEM** as before:
 
-```
-lb-dirac dirac-cert-convert MyFile.p12
-```
-- Check that everything works as it should [here](https://cern.service-now.com/service-portal?id=kb_article&n=KB0003774).
+   ```bash
+   lb-dirac dirac-cert-convert NewCertificate.p12
+   ```
 
-- Possibly run `lhcb-dirac`.
+7. **Test your setup**: Follow [this checklist](https://cern.service-now.com/service-portal?id=kb_article&n=KB0003774) to ensure everything is working.
 
-- Finally, run `lhcb-proxy-init`.
+8. Optionally run:
+
+   ```bash
+   lhcb-dirac
+   ```
+
+9. Finally, reinitialize your proxy:
+
+   ```bash
+   lhcb-proxy-init
+   ```
+
+✅ You have renewed your certificate.
