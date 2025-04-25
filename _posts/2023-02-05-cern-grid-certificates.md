@@ -6,6 +6,7 @@ categories:
 tags:
   - LHCb
   - CERN
+  - HPC
 comments: true
 ---
 
@@ -19,18 +20,18 @@ Instructions: [Official LHCb Certificate Guide](https://twiki.cern.ch/twiki/bin/
 
 2. **Import all required certificates** into Firefox (as described in the link above).
 
-3. **Import your personal certificate** into Firefox. You’ll be prompted to set an **import password** — remember it!
+3. **Import your personal certificate** into Firefox. You’ll be prompted to set an **import password**---remember it!
 
 4. **Transfer the certificate** to your `lxplus` account:
 
    ```bash
-   scp MyCertificate.p12 username@lxplus.cern.ch:
+   scp MyCertificate.p12 <username>@lxplus.cern.ch:~
    ```
 
 5. **SSH into lxplus**:
 
    ```bash
-   ssh -Y username@lxplus.cern.ch
+   ssh -Y <username>@lxplus.cern.ch
    ```
 
 6. **Convert the certificate to PEM format** (you’ll be asked to set a **PEM passphrase** — use a different one than the import password):
@@ -58,7 +59,7 @@ Instructions: [Official LHCb Certificate Guide](https://twiki.cern.ch/twiki/bin/
 2. **Transfer it to lxplus**:
 
    ```bash
-   scp NewCertificate.p12 username@lxplus.cern.ch:
+   scp NewCertificate.p12 <username>@lxplus.cern.ch:~
    ```
 
 3. **In Firefox**, delete the old certificate and import the new `.p12` one.
