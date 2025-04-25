@@ -66,10 +66,7 @@ Here’s a step-by-step guide to deploy your bot using AWS EC2:
    ```bash
    screen
    ```
-   Start your bot, then detach with:
-   ```bash
-   Ctrl + A, then D
-   ```
+   Start your bot, then detach with: `Ctrl + A`, then `D`.
    To resume:
    ```bash
    screen -r
