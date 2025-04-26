@@ -136,13 +136,13 @@ Steps:
 
 4. **Prefix sum**: `prefix_sum_offsets_velo_tracks` is an implementation of prefix sum on the host. Implementation: [`HostPrefixSum.cpp`](https://gitlab.cern.ch/lhcb/Allen/-/blob/master/host/prefix_sum/src/HostPrefixSum.cpp).
 
-```cpp
-prefix_sum_offsets_velo_tracks = make_algorithm(
-	host_prefix_sum_t,
-	name="prefix_sum_offsets_velo_tracks",
-	dev_input_buffer_t=velo_search_by_triplet.dev_number_of_velo_tracks_t,
-)
-```
+    ```cpp
+    prefix_sum_offsets_velo_tracks = make_algorithm(
+      host_prefix_sum_t,
+      name="prefix_sum_offsets_velo_tracks",
+      dev_input_buffer_t=velo_search_by_triplet.dev_number_of_velo_tracks_t,
+    )
+    ```
 Specifically, we take the variable `dev_number_of_velo_tracks`, which is simply an array containing the number of tracks we have for each event passed to Allen, and we compute the prefix sum of this array, i.e. the offsets, in order to be more computationally efficient later on.
 
 5. **Weak track filter**: `velo_three_hit_tracks_filter` is the weak track filter algorithm, which operates on three-hit tracks,
@@ -234,7 +234,7 @@ For the type `Velo::ConstClusters` see [`VeloEventModel.cuh`](https://gitlab.cer
 
 - `dev_atomics_velo`: Atomic operations/variables are used in concurrent programming to ensure the consistency and integrity of shared data structures.
 
-In the VELO we seem to need 3 types of atomic variables:
+In the VELO we need 3 types of atomic variables:
 
 ```cpp
 namespace atomics {
