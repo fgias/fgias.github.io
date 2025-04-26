@@ -1,23 +1,24 @@
 ---
-title: "Notes on the Allen Codebase for New Developers"
+title: "Notes for New Developers on LHCb’s Allen Codebase"
 excerpt_separator: "<!--more-->"
 categories:
   - Blog
 tags:
+  - CERN
   - LHCb
   - GPU
 comments: true
 ---
 
-This post is meant to give extra comments and notes on the Allen codebase. For more introductory materials see the Allen [GitLab](https://gitlab.cern.ch/lhcb/Allen/) and [documentation](https://allen-doc.docs.cern.ch/). The CUDA GNU debugger is highly recommended for exploring and understanding the codebase.
+This post is meant to give extra comments and notes on the Allen codebase. For more introductory materials, see the Allen [GitLab](https://gitlab.cern.ch/lhcb/Allen/) and [documentation](https://allen-doc.docs.cern.ch/). The CUDA GNU debugger is highly recommended for exploring and understanding the codebase.
 
 ## Structure of Data in Allen
 
-Essentially data in Allen are stored in 1-dimensional arrays. Hence, if we have many events, we need "offsets", to know where specifically the data of interest can be found within this 1-dimensional array.
+Essentially, data in Allen are stored in 1-dimensional arrays. Therefore, if we have many events, we need "offsets" to know where specifically the data of interest can be found within this 1-dimensional array.
 
 ## Pointers to Data in Allen
 
-For example let's look at [`SearchByTriplet.cu`](https://gitlab.cern.ch/lhcb/Allen/-/blob/master/device/velo/search_by_triplet/src/SearchByTriplet.cu):
+For example, let's look at [`SearchByTriplet.cu`](https://gitlab.cern.ch/lhcb/Allen/-/blob/master/device/velo/search_by_triplet/src/SearchByTriplet.cu):
 
 ```cpp
 __global__ void velo_search_by_triplet::velo_search_by_triplet(
@@ -67,7 +68,7 @@ const unsigned event_number = parameters.dev_event_list[blockIdx.x];
 const unsigned number_of_events = parameters.dev_number_of_events[0];
 ```
 
-- We also need pointers to the hits of the current event.
+- We also need pointers to the hits of the current event:
 
 ```cpp
 const unsigned total_estimated_number_of_clusters =
@@ -78,17 +79,18 @@ const unsigned* module_hit_num = parameters.dev_module_cluster_num + event_numbe
 const unsigned hit_offset = module_hit_start[0];
 ```
 
-- As well as pointers to the tracks of the current event.
+- As well as pointers to the tracks of the current event:
 
 ```cpp
 const unsigned tracks_offset = Velo::track_offset(parameters.dev_offsets_estimated_input_size, event_number);
 Velo::TrackHits* tracks = parameters.dev_tracks + tracks_offset;
 Velo::TrackletHits* three_hit_tracks = parameters.dev_three_hit_tracks +
+...
 ```
-For this we use `Velo::track_offset` defined in `VeloEventModel.cuh`.
+
+For this, we use `Velo::track_offset` defined in `VeloEventModel.cuh`:
 
 ```cpp
-...
 ...
   /**
    * @brief Returns the track offset of an event. //
@@ -103,9 +105,13 @@ For this we use `Velo::track_offset` defined in `VeloEventModel.cuh`.
 
 ## Looping Over VELO Clusters in Allen
 
-First you parallelize in the number of events, by calling the CUDA kernel with a number of blocks equal to the number of the events, and you choose the event number using `const unsigned event_number = parameters.dev_event_list[blockIdx.x];`.
+First, you parallelize over the number of events by calling the CUDA kernel with a number of blocks equal to the number of events. You select the event number with:
 
-In order to access the VELO clusters in an event I used `velo_cluster_container`, using `velo_cluster_container.x(index)` etc. The question then was how to know the total number of clusters in the event. And for that you can use
+```cpp
+const unsigned event_number = parameters.dev_event_list[blockIdx.x];
+```
+
+To access the VELO clusters in an event, use `velo_cluster_container.x(index)`, etc. To find the total number of clusters in the event:
 
 ```cpp
 const auto event_number_of_clusters =
@@ -118,17 +124,17 @@ where `parameters.dev_offsets_estimated_input_size[event_number * Velo::Constant
 ## Notes on the [`make_velo_tracks()`](https://gitlab.cern.ch/lhcb/Allen/-/blob/master/configuration/python/AllenConf/velo_reconstruction.py#L167) Function
 
 - File: [`velo_reconstruction.py`](https://gitlab.cern.ch/lhcb/Allen/-/blob/master/configuration/python/AllenConf/velo_reconstruction.py).
+- Paper: [A fast local algorithm for track reconstruction on parallel architectures](https://ieeexplore.ieee.org/document/8778210).
 
-- Paper: [A fast local algorithm for track reconstruction on
-parallel architectures](https://ieeexplore.ieee.org/document/8778210).
+Steps:
 
-- First we initialize the number of events with `number_of_events = initialize_number_of_events()`. Implementation: [`HostInitNumberOfEvents.cpp`](https://gitlab.cern.ch/lhcb/Allen/-/blob/master/host/init_event_list/src/HostInitNumberOfEvents.cpp).
+1. **Initialize** the number of events: First we initialize the number of events with `number_of_events = initialize_number_of_events()`. Implementation: [`HostInitNumberOfEvents.cpp`](https://gitlab.cern.ch/lhcb/Allen/-/blob/master/host/init_event_list/src/HostInitNumberOfEvents.cpp).
 
-- Then we decode the information from the Velo, with `decode_velo()` and store it in `decoded_velo`. See [`decode_velo()`](https://gitlab.cern.ch/lhcb/Allen/-/blob/master/configuration/python/AllenConf/velo_reconstruction.py#L18).
+2. **Decode** VELO information: Then we decode the information from the Velo, with `decode_velo()` and store it in `decoded_velo`. See [`decode_velo()`](https://gitlab.cern.ch/lhcb/Allen/-/blob/master/configuration/python/AllenConf/velo_reconstruction.py#L18).
 
-- `velo_search_by_triplet` takes the information from the decoding, i.e. the normal clusters etc. and contructs all the tracks, using the search by triplet algorithm. Implementaiton: [`SearchByTriplet.cu`](https://gitlab.cern.ch/lhcb/Allen/-/blob/master/device/velo/search_by_triplet/src/SearchByTriplet.cu).
+3. **Search by Triplet**: `velo_search_by_triplet` takes the information from the decoding, i.e. the normal clusters etc. and contructs all the tracks, using the search by triplet algorithm. Implementaiton: [`SearchByTriplet.cu`](https://gitlab.cern.ch/lhcb/Allen/-/blob/master/device/velo/search_by_triplet/src/SearchByTriplet.cu).
 
-- `prefix_sum_offsets_velo_tracks` is an implementation of prefix sum on the host. Implementation: [`HostPrefixSum.cpp`](https://gitlab.cern.ch/lhcb/Allen/-/blob/master/host/prefix_sum/src/HostPrefixSum.cpp).
+4. **Prefix sum**: `prefix_sum_offsets_velo_tracks` is an implementation of prefix sum on the host. Implementation: [`HostPrefixSum.cpp`](https://gitlab.cern.ch/lhcb/Allen/-/blob/master/host/prefix_sum/src/HostPrefixSum.cpp).
 
 ```cpp
 prefix_sum_offsets_velo_tracks = make_algorithm(
@@ -139,17 +145,17 @@ prefix_sum_offsets_velo_tracks = make_algorithm(
 ```
 Specifically, we take the variable `dev_number_of_velo_tracks`, which is simply an array containing the number of tracks we have for each event passed to Allen, and we compute the prefix sum of this array, i.e. the offsets, in order to be more computationally efficient later on.
 
-- `velo_three_hit_tracks_filter` is the weak track filter algorithm, which operates on three-hit tracks,
+5. **Weak track filter**: `velo_three_hit_tracks_filter` is the weak track filter algorithm, which operates on three-hit tracks,
 and appends them to the final tracks container given that two
 conditions are met. For more details see the [paper](https://ieeexplore.ieee.org/document/8778210).
 
-- `prefix_sum_offsets_number_of_three_hit_tracks_filtered` does, exactly as above, the prefix sum on the `velo_three_hit_tracks_filter` output.
+6. **Prefix sum for three-hit tracks**: `prefix_sum_offsets_number_of_three_hit_tracks_filtered` does, exactly as above, the prefix sum on the `velo_three_hit_tracks_filter` output.
 
-- `velo_copy_track_hit_number` copies Velo track hit numbers on a consecutive container. Implementation: [`VeloCopyTrackHitNumber.cu`](https://gitlab.cern.ch/lhcb/Allen/-/blob/master/device/velo/consolidate_tracks/src/VeloCopyTrackHitNumber.cu).
+7. **Copy track hit number**: `velo_copy_track_hit_number` copies Velo track hit numbers on a consecutive container. Implementation: [`VeloCopyTrackHitNumber.cu`](https://gitlab.cern.ch/lhcb/Allen/-/blob/master/device/velo/consolidate_tracks/src/VeloCopyTrackHitNumber.cu).
 
-- `prefix_sum_offsets_velo_track_hit_number` does again, exactly as above, the prefix sum on the `velo_copy_track_hit_number` output.
+8. **Prefix sum for track hit number**: `prefix_sum_offsets_velo_track_hit_number` does again, exactly as above, the prefix sum on the `velo_copy_track_hit_number` output.
 
-- Finally, `velo_consolidate_tracks` consolidates the tracks. Implementation: [`VeloConsolidateTracks.cu`](https://gitlab.cern.ch/lhcb/Allen/-/blob/master/device/velo/consolidate_tracks/src/VeloConsolidateTracks.cu)
+9. **Consolidate tracks**: Finally, `velo_consolidate_tracks` consolidates the tracks. Implementation: [`VeloConsolidateTracks.cu`](https://gitlab.cern.ch/lhcb/Allen/-/blob/master/device/velo/consolidate_tracks/src/VeloConsolidateTracks.cu)
 
 ## Notes on the [Search by Triplet](https://gitlab.cern.ch/lhcb/Allen/-/blob/master/device/velo/search_by_triplet/src/SearchByTriplet.cu) Algorithm
 
@@ -273,7 +279,7 @@ $94 = {hits = {2111, 1995, 1876, 1740, 1617, 1503, 1394, 1289, 1188, 1101, 1003,
 
 - `__global__ void velo_copy_track_hit_number::velo_copy_track_hit_number`: Copies Velo track hit numbers on a consecutive container.
 
-## Notes on the [`VeloConsolidateTracks.cu`](https://gitlab.cern.ch/lhcb/Allen/-/blob/master/device/velo/consolidate_tracks/src/VeloConsolidateTracks.cu) Algorithm
+## Notes on [`VeloConsolidateTracks.cu`](https://gitlab.cern.ch/lhcb/Allen/-/blob/master/device/velo/consolidate_tracks/src/VeloConsolidateTracks.cu)
 
 - `event_number_of_tracks_in_main_track_container`: The number of tracks, from the search by triplet algorithm, for the current event.
 
