@@ -7,6 +7,7 @@ tags:
   - CERN
   - LHCb
   - GPU
+  - HPC
 comments: true
 ---
 
