@@ -139,11 +139,16 @@ This blog post combines various notes and technical instructions related to **Al
 
 ## Installing in [CVMFS](https://cernvm.cern.ch/fs/)
 
-- Packages are available at `/cvmfs/sft.cern.ch/lcg/releases`.
-- If the package is missing, edit the appropriate `lcg-toolchains` fragment and add the entry:
-  ```bash
-  _add_lcg_entry("${LCG_releases_base}/gtest/1.11.0-21e8c/x86_64-centos9-gcc11-opt")
-  ```
+
+- All packages available in `LCG` are here: `/cvmfs/sft.cern.ch/lcg/releases`.
+
+- Look in the directory if you can find the package, if not, you have to install it yourself, e.g. `/cvmfs/sft.cern.ch/lcg/releases/gtest`.
+
+- Look in the package directory for a version and a platform/binary tag that works for you, e.g. `/cvmfs/sft.cern.ch/lcg/releases/gtest/1.11.0-21e8c/x86_64-centos9-gcc11-opt`.
+
+- Check if the package is included in the `lcg-toolchains` file that is being used. The file that handles that is in the repository `lcg-toolchains` in `fragments/packages`, look for the one that matches the platform and LCG version you're using. In this case `LCG_103cuda-x86_64-centos9-gcc11-opt.cmake`.
+
+- Add the package if needed, e.g. by adding a line to the file: `_add_lcg_entry("${LCG_releases_base}/gtest/1.11.0-21e8c/x86_64-centos9-gcc11-opt")`.
 
 ---
 
@@ -176,7 +181,7 @@ This blog post combines various notes and technical instructions related to **Al
   target_link_libraries(New_Algo PRIVATE Backend HostEventModel EventModel Utils)
   ```
 
-- To instantiate an algorithm, `INSTANTIATE_ALGORITHM()`, you habe to link the new library `New_Algo` to the `Stream` library: modify `stream/CMakeLists.txt`.
+- To instantiate an algorithm, `INSTANTIATE_ALGORITHM()`, you have to link the new library `New_Algo` to the `Stream` library: modify `stream/CMakeLists.txt`.
 
   ```cpp
   target_link_libraries(Stream
