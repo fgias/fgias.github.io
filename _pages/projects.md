@@ -29,7 +29,7 @@ Learning traffic anomalies from generative models on real-time spatio-temporal d
 Exploring weak ergodicity breaking in the PXP spin chain.
 
 ![pxp-1](/assets/images/pxp-1.png)
-**Figure:** Spins on a chain, interacting only if they are close to each other. [Figure](https://esc.fnwi.uva.nl/thesis/centraal/files/f1660852177.pdf) by Alexander Wagner.
+**Figure:** Spins on a chain, interacting only if they are close to each other. [Figure](https://uebungen.physik.uni-heidelberg.de/c/image/exp/d/vorlesung/20191/983/wagner_slides.pdf) by Alexander Wagner.
 ![pxp-2](/assets/images/pxp-2.png)
 **Figure:** Observation of linear fronts in the space-time diagram of the evolution of the energy density of a PXP chain.
 
