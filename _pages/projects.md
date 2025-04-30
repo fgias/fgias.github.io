@@ -3,7 +3,7 @@ permalink: /projects/
 title: "Projects"
 ---
 
-## ![logo](/assets/images/etx4velo-logo.png){: width="50px" style="vertical-align:middle;"} ETX4VELO: Tracking with GNNs
+## ![logo](/assets/images/etx4velo-logo.png){: height="50px" style="vertical-align:middle;"} ETX4VELO: Tracking with GNNs
 
 Real-time particle track reconstruction from high-frequency, noisy data using ML on GPUs and FPGAs at the LHC. 
 
@@ -14,7 +14,7 @@ Real-time particle track reconstruction from high-frequency, noisy data using ML
 
 [Paper](https://dx.doi.org/10.1088/1748-0221/19/12/P12022), [Paper](https://arxiv.org/abs/2502.02304), [Code(Python, C++, CUDA, HDL)](https://gitlab.cern.ch/gdl4hep)
 
-## ![logo](/assets/images/xim-logo.png){: width="50px" style="vertical-align:middle;"} Traffic Anomaly Detection
+## ![logo](/assets/images/xim-logo.png){: height="50px" style="vertical-align:middle;"} Traffic Anomaly Detection
 
 Learning traffic anomalies from generative models on real-time spatio-temporal data from 125 cameras in Gothenburg, Sweden.
 
@@ -24,7 +24,7 @@ Learning traffic anomalies from generative models on real-time spatio-temporal d
 
 [Paper](https://arxiv.org/abs/2502.01391), [Code(Python)](https://gitlab.cern.ch/fgiasemi/traffic-anomaly-detection)
 
-## ![logo](/assets/images/pxp-logo.jpg){: width="50px" style="vertical-align:middle;"} Energy Transport in the PXP Spin Chain
+## ![logo](/assets/images/pxp-logo.jpg){: height="50px" style="vertical-align:middle;"} Energy Transport in the PXP Spin Chain
 
 Exploring weak ergodicity breaking in the PXP spin chain.
 
@@ -35,7 +35,7 @@ Exploring weak ergodicity breaking in the PXP spin chain.
 
 [Master Thesis](https://dspace.lib.ntua.gr/xmlui/bitstream/handle/123456789/55932/quantum-chaos.pdf), [Code(Julia, Python)](https://github.com/fgias/quantum-chaos)
 
-## ![logo](/assets/images/chirikov-logo.png){: width="50px" style="vertical-align:middle;"} Chimera States in Oscillator Networks
+## ![logo](/assets/images/chirikov-logo.png){: height="50px" style="vertical-align:middle;"} Chimera States in Oscillator Networks
 
 Chimera states in the leaky integrate-and-fire model of spiking neuron oscillators.
 
@@ -44,9 +44,37 @@ Chimera states in the leaky integrate-and-fire model of spiking neuron oscillato
 
 [Code(Python, C++, Java)](https://github.com/fgias/leaky-integrate-and-fire)
 
-## ![logo](/assets/images/xbtusd-logo.png){: width="50px" style="vertical-align:middle;"} Exploring Trading Strategies for Crypto
+## ![logo](/assets/images/xbtusd-logo.png){: height="50px" style="vertical-align:middle;"} Exploring Trading Strategies for Crypto
 
 ![xbtusd-1](/assets/images/xbtusd-1.png)
 **Figure:** Illustration of buy and sell signals based on moving averages, on historical data of bitcoin prices.
 
 [Code(Python)](https://github.com/fgias/freqtrade-strategies), [Code(Python)](https://github.com/fgias/bitcoin-backtester)
+
+## ![logo](/assets/images/cmi-logo.png){: height="50px" style="vertical-align:middle;"} Yang–Mills Existence and Mass Gap
+
+Studied the *Yang–Mills existence and mass gap problem*, an open question in mathematical physics and mathematics, and one of the seven Millennium Prize Problems established by the [Clay Mathematics Institute](https://www.claymath.org/), which offers a \$1M reward for a correct solution.
+
+<!-- ![cmi-1](/assets/images/cmi-1.png) -->
+
+\[
+\mathcal{L} = -\frac{1}{2} \text{tr}(F^2) = -\frac{1}{4} F^{a\mu\nu} F_{\mu\nu}^a
+\]
+**Equation:** Lagrangian of gauge theories with a non-abelian symmetry group.
+
+\[
+\mathcal{L}_{\text{SM}} = \mathcal{L}_{\text{gauge}} + \mathcal{L}_{\text{fermion}} + \mathcal{L}_{\text{Higgs}} + \mathcal{L}_{\text{Yukawa}}
+\]
+
+\[
+\begin{aligned}
+\mathcal{L}_{\text{gauge}} &= -\frac{1}{4}G_{\mu\nu}^a G^{a\mu\nu} - \frac{1}{4}W_{\mu\nu}^i W^{i\mu\nu} - \frac{1}{4}B_{\mu\nu} B^{\mu\nu} \\
+\mathcal{L}_{\text{fermion}} &= \sum_{\psi} \bar{\psi} i\gamma^\mu D_\mu \psi \\
+\mathcal{L}_{\text{Higgs}} &= (D_\mu \phi)^\dagger(D^\mu \phi) - V(\phi), \quad V(\phi) = \mu^2 \phi^\dagger \phi + \lambda (\phi^\dagger \phi)^2 \\
+\mathcal{L}_{\text{Yukawa}} &= -\left( y_u \bar{Q}_L \tilde{\phi} u_R + y_d \bar{Q}_L \phi d_R + y_e \bar{L}_L \phi e_R + \text{h.c.} \right)
+\end{aligned}
+\]
+**Equation:** The Standard Model Lagrangian, showing gauge, fermion, Higgs, and Yukawa sectors.
+
+
+[Master Thesis](/assets/pdf/yang-mills.pdf)
