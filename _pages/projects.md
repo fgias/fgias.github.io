@@ -76,6 +76,6 @@ Studied the *Yang–Mills existence and mass gap problem*, an open question in m
     \end{aligned}
     \]
 </div>
-**Equations:** The Standard Model Lagrangian, showing gauge, fermion, Higgs, and Yukawa sectors.
+**Equations:** The Standard Model Lagrangian $\mathcal{L}_{\text{SM}}$, showing gauge, fermion, Higgs, and Yukawa sectors.
 
 [Master Thesis](/assets/pdf/yang-mills.pdf)
