@@ -12,7 +12,7 @@ Real-time particle track reconstruction from high-frequency, noisy data using ML
 [![etx4velo-2 preview](/assets/images/etx4velo-2.png)](/assets/images/etx4velo-2.pdf)
 **Figure:** Illustration of the process of moving from the event graph to the reconstructed tracks of the event.
 
-[Paper](https://dx.doi.org/10.1088/1748-0221/19/12/P12022), [Paper](https://arxiv.org/abs/2502.02304), [Code(Python, C++, CUDA, HDL)](https://gitlab.cern.ch/gdl4hep)
+[Paper](https://dx.doi.org/10.1088/1748-0221/19/12/P12022), [Paper](https://arxiv.org/abs/2502.02304), [Poster](https://indico.cern.ch/event/1405026/contributions/6103447/), [Code(Python, C++, CUDA, HDL)](https://gitlab.cern.ch/gdl4hep)
 
 ## <img src="/assets/images/xim-logo.png" alt="logo" style="height:50px; vertical-align:middle;"> Traffic Anomaly Detection
 
