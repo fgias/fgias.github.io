@@ -53,7 +53,7 @@ Chimera states in the leaky integrate-and-fire model of spiking neuron oscillato
 
 ## <img src="/assets/images/cmi-logo.png" alt="logo" style="height:50px; vertical-align:middle;">  Yang–Mills Existence and Mass Gap
 
-Studied the *Yang–Mills existence and mass gap problem*, an open question in mathematical physics and mathematics, and one of the seven Millennium Prize Problems established by the [Clay Mathematics Institute](https://www.claymath.org/), which offers a \$1M reward for a correct solution.
+Studied the *Yang–Mills existence and mass gap problem*, an open question in mathematical physics and mathematics, and one of the seven Millennium Prize Problems established by the [Clay Mathematics Institute](https://www.claymath.org/), which offers a $1M reward for a correct solution.
 
 <div>
     \[
@@ -76,6 +76,6 @@ Studied the *Yang–Mills existence and mass gap problem*, an open question in m
     \end{aligned}
     \]
 </div>
-**Equations:** The Standard Model Lagrangian $\mathcal{L}_{\text{SM}}$, showing gauge, fermion, Higgs, and Yukawa sectors.
+**Equations:** The Standard Model Lagrangian \\(\mathcal{L}_{\text{SM}}\\), showing gauge, fermion, Higgs, and Yukawa sectors.
 
 [Master Thesis](/assets/pdf/yang-mills.pdf)
