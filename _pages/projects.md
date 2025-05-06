@@ -4,6 +4,8 @@ title: "Projects"
 ---
 
 ## <img src="/assets/images/etx4velo-logo.png" alt="logo" style="height:50px; vertical-align:middle;"> ETX4VELO: Tracking with GNNs
+<span style="background-color:#eee; border-radius:6px; padding:2px 6px; font-size: 0.9em; margin-right:6px;">High Energy Physics</span>
+<span style="background-color:#eee; border-radius:6px; padding:2px 6px; font-size: 0.9em; margin-right:6px;">Machine Learning</span>
 
 Real-time particle track reconstruction from high-frequency, noisy data using ML on GPUs and FPGAs at the LHC. 
 
@@ -15,6 +17,8 @@ Real-time particle track reconstruction from high-frequency, noisy data using ML
 [Paper](https://dx.doi.org/10.1088/1748-0221/19/12/P12022), [Paper](https://arxiv.org/abs/2502.02304), [Poster](https://indico.cern.ch/event/1405026/contributions/6103447/), [Code(Python, C++, CUDA, HDL)](https://gitlab.cern.ch/gdl4hep)
 
 ## <img src="/assets/images/xim-logo.png" alt="logo" style="height:50px; vertical-align:middle;"> Traffic Anomaly Detection
+<span style="background-color:#eee; border-radius:6px; padding:2px 6px; font-size: 0.9em; margin-right:6px;">Machine Learning</span>
+<span style="background-color:#eee; border-radius:6px; padding:2px 6px; font-size: 0.9em; margin-right:6px;">Anomaly Detection</span>
 
 Learning traffic anomalies from generative models on real-time spatio-temporal data from 125 cameras in Gothenburg, Sweden.
 
@@ -25,6 +29,8 @@ Learning traffic anomalies from generative models on real-time spatio-temporal d
 [Paper](https://arxiv.org/abs/2502.01391), [Code(Python)](https://gitlab.cern.ch/fgiasemi/traffic-anomaly-detection)
 
 ## <img src="/assets/images/pxp-logo.jpg" alt="logo" style="height:50px; vertical-align:middle;"> Energy Transport in the PXP Spin Chain
+<span style="background-color:#eee; border-radius:6px; padding:2px 6px; font-size: 0.9em; margin-right:6px;">Quantum Chaos</span>
+<span style="background-color:#eee; border-radius:6px; padding:2px 6px; font-size: 0.9em; margin-right:6px;">Many-Body Physics</span>
 
 Exploring weak ergodicity breaking in the PXP spin chain.
 
@@ -36,6 +42,8 @@ Exploring weak ergodicity breaking in the PXP spin chain.
 [Master Thesis](https://dspace.lib.ntua.gr/xmlui/bitstream/handle/123456789/55932/quantum-chaos.pdf), [Code(Julia, Python)](https://github.com/fgias/quantum-chaos)
 
 ## <img src="/assets/images/chirikov-logo.png" alt="logo" style="height:50px; vertical-align:middle;">  Chimera States in Oscillator Networks
+<span style="background-color:#eee; border-radius:6px; padding:2px 6px; font-size: 0.9em; margin-right:6px;">Nonlinear Dynamics</span>
+<span style="background-color:#eee; border-radius:6px; padding:2px 6px; font-size: 0.9em; margin-right:6px;">Complex Systems</span>
 
 Chimera states in the leaky integrate-and-fire model of spiking neuron oscillators.
 
@@ -45,6 +53,8 @@ Chimera states in the leaky integrate-and-fire model of spiking neuron oscillato
 [Code(Python, C++, Java)](https://github.com/fgias/leaky-integrate-and-fire)
 
 ## <img src="/assets/images/xbtusd-logo.png" alt="logo" style="height:50px; vertical-align:middle;">  Exploring Trading Strategies for Crypto
+<span style="background-color:#eee; border-radius:6px; padding:2px 6px; font-size: 0.9em; margin-right:6px;">Quantitative Finance</span>
+<span style="background-color:#eee; border-radius:6px; padding:2px 6px; font-size: 0.9em; margin-right:6px;">Cryptocurrencies</span>
 
 ![xbtusd-1](/assets/images/xbtusd-1.png)
 **Figure:** Illustration of buy and sell signals based on moving averages, on historical data of bitcoin prices.
@@ -52,6 +62,8 @@ Chimera states in the leaky integrate-and-fire model of spiking neuron oscillato
 [Code(Python)](https://github.com/fgias/freqtrade-strategies), [Code(Python)](https://github.com/fgias/bitcoin-backtester)
 
 ## <img src="/assets/images/cmi-logo.png" alt="logo" style="height:50px; vertical-align:middle;">  Yang–Mills Existence and Mass Gap
+<span style="background-color:#eee; border-radius:6px; padding:2px 6px; font-size: 0.9em; margin-right:6px;">Theoretical Physics</span>
+<span style="background-color:#eee; border-radius:6px; padding:2px 6px; font-size: 0.9em; margin-right:6px;">Mathematical Physics</span>
 
 Studied the *Yang–Mills existence and mass gap problem*, an open question in mathematical physics and mathematics, and one of the seven Millennium Prize Problems established by the [Clay Mathematics Institute](https://www.claymath.org/), which offers a $1M reward for a correct solution.
 
