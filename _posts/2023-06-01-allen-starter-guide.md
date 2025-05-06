@@ -348,7 +348,7 @@ File storage at CERN is normally organized as follows:
 
 ## Obtaining a CERN Grid Certificate
 
-Finally, if you need help in obtaining a grid certificate see this [post](http://fotisgiasemis.com/blog/cern-grid-certificates/).
+Finally, if you need help obtaining a grid certificate see my earlier post: [Obtaining and Renewing a CERN Grid Certificate in LHCb](http://fotisgiasemis.com/blog/cern-grid-certificates/).
 
 ## SSH Configuration File
 
