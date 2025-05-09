@@ -69,7 +69,7 @@ Studied the *Yang–Mills existence and mass gap problem*, an open question in m
 
 <div>
     \[
-    \mathcal{L} = -\frac{1}{2} \text{tr}(F^2) = -\frac{1}{4} F^{a\mu\nu} F_{\mu\nu}^a
+    \mathcal{L} = -\frac{1}{2} \text{tr}(F^2) = -\frac{1}{4} F_{\mu\nu}^a F^{a\mu\nu}
     \]
 </div>
 **Equation:** Lagrangian of gauge theories with a non-abelian symmetry group.
